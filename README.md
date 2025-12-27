@@ -1,4 +1,4 @@
-I have designed a versatile extension for @reya_xyz  that combines all the tools you need for Reya into one extension(I have included the GitHub link to download the extension below.) 
+I have designed(vincent) a versatile extension for @reya_xyz  that combines all the tools you need for Reya into one extension(I have included the GitHub link to download the extension below.) 
 
 The extension consists of the following sections:
 
