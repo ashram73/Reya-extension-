@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Reya Ultimate Tool",
+  "version": "12.0",
+  "description": "Reya Analytics, Wallet Points & AI Chatbot",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icon.png" }
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://api.reya.xyz/*",
+    "https://api.hyperliquid.xyz/*",
+    "http://46.226.167.7/*"
+  ]
+}

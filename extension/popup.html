@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reya Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="menu-view" class="view">
+    <header>
+      <h1>Reya <span class="highlight">Assistant</span></h1>
+      <div class="status-dot"></div>
+    </header>
+    
+    <div class="menu-container">
+      <button id="btn-live-markets" class="menu-btn">📈 Live Markets</button>
+      <button id="btn-overview" class="menu-btn">📊 Market Overview</button>
+      <button id="btn-arbitrage" class="menu-btn arb-btn">⚡ Reya vs Hyperliquid</button>
+      
+      <button id="btn-points" class="menu-btn points-btn">🏆 Check Points (XP)</button>
+      <button id="btn-chat" class="menu-btn chat-btn">🤖 Reya AI Assistant</button>
+
+      <button id="btn-wallet" class="menu-btn pos-btn">💼 My Positions</button>
+      <button id="btn-trades" class="menu-btn trade-btn">📜 Trade History</button>
+    </div>
+  </div>
+
+  <div id="list-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Live Prices</h2></div>
+    <div class="search-box"><input type="text" id="searchInput" placeholder="Search..."></div>
+    <div id="market-list" class="scroll-container"><div class="loader">Loading...</div></div>
+  </div>
+
+  <div id="overview-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Overview</h2></div>
+    <div id="overview-content" class="scroll-container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="lbl">Vol 24h</div>
+          <div class="val" id="ov-vol">Loading...</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Total OI</div>
+          <div class="val" id="ov-oi">Loading...</div>
+        </div>
+      </div>
+      
+      <div class="sec-title">🏆 Highlights</div>
+      <div class="top-row">
+        <div class="mini-card">
+          <span>Highest Volume</span>
+          <div id="ov-top-vol" class="mini-val">---</div>
+        </div>
+        <div class="mini-card">
+          <span>Highest OI</span>
+          <div id="ov-top-oi" class="mini-val">---</div>
+        </div>
+      </div>
+
+      <div class="sec-title">🚀 Top Gainers</div>
+      <div id="list-gainers" class="mini-list"></div>
+
+      <div class="sec-title">🥀 Top Losers</div>
+      <div id="list-losers" class="mini-list"></div>
+    </div>
+  </div>
+
+  <div id="arb-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Arb Scanner</h2></div>
+    <div class="arb-header"><span>Asset</span><span>Reya</span><span>Hyper</span><span>Diff</span></div>
+    <div id="arb-list" class="scroll-container"><div class="loader">Scanning...</div></div>
+  </div>
+
+  <div id="wallet-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Positions</h2></div>
+    <div class="input-row"><input type="text" id="walletInput" placeholder="0x..."><button id="btn-check-wallet">Go</button></div>
+    <div id="pnl-box" class="pnl-card hidden"><div class="lbl">Unrealized PnL</div><div class="val" id="total-pnl">---</div></div>
+    <div class="pos-header"><span>Asset</span><span>Side</span><span>Entry/Mark</span><span>PnL</span></div>
+    <div id="positions-list" class="scroll-container"><div class="loader">Enter wallet</div></div>
+  </div>
+
+  <div id="trades-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>History</h2></div>
+    <div class="input-row"><input type="text" id="tradeInput" placeholder="0x..."><button id="btn-check-trades">Go</button></div>
+    <div class="trade-header"><span>Time</span><span>Side</span><span>Price/Qty</span></div>
+    <div id="trades-list" class="scroll-container"><div class="loader">Enter wallet</div></div>
+  </div>
+
+  <div id="points-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Reya Points</h2></div>
+    <div class="input-row"><input type="text" id="pointsInput" placeholder="0x..."><button id="btn-check-points">Check</button></div>
+    <div id="points-list" class="scroll-container" style="padding:10px"><div class="loader">Enter wallet</div></div>
+  </div>
+
+  <div id="chat-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="menu">❮</button><h2>Reya AI</h2></div>
+    <div id="chat-box" class="chat-container">
+      <div class="msg bot">Hello! Ask me anything about Reya.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type here...">
+      <button id="btn-send-chat">➤</button>
+    </div>
+  </div>
+
+  <div id="chart-view" class="view hidden">
+    <div class="nav-header"><button class="back-btn" data-target="list">❮</button><h2 id="chartTitle">BTC</h2></div>
+    <div class="chart-area"><canvas id="priceCanvas" width="300" height="150"></canvas></div>
+    <div class="chart-info"><span>High: <b id="chartHigh">--</b></span><span>Low: <b id="chartLow">--</b></span></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
